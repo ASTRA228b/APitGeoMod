@@ -5,5 +5,5 @@ and most simplest (and dose not lag your game like most of them)
 (keep in mind this is just a lazy post)
 
 ## How to use 
-S key to open
+N key to open
 once you see the UI you should know
