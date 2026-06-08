@@ -9,6 +9,8 @@ public class PitFinderController : MonoBehaviour
     private void Start()
     {
         FindObjects();
+        Debug.Log($"Objects Found: Slips: {PitWallUpper}, {PitWallUpper} Grounds: {PitGroundTop}, {PitGroundBottom}");
+
     }
 
     private void FixedUpdate()
