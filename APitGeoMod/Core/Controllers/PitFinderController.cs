@@ -107,5 +107,9 @@ public class PitFinderController : MonoBehaviour
             Surface.extraVelMultiplier = MLT1;
             Surface.extraVelMaxMultiplier = MLT2;
         }
+        else
+        {
+            Surface.extraVelMaxMultiplier = 1.1f;
+        }
     }
 }
