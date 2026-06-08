@@ -6,11 +6,31 @@ namespace Astras_PitGeo.Core.Controllers;
 
 public class PitFinderController : MonoBehaviour
 {
-    private void Start()
-    {
-        FindObjects();
-        Debug.Log($"Objects Found: Slips: {PitWallUpper}, {PitWallUpper} Grounds: {PitGroundTop}, {PitGroundBottom}");
+    private bool objectsFound;
+    private float nextSearchTime;
 
+    private void Update()
+    {
+        if (objectsFound)
+            return;
+
+        if (Time.time < nextSearchTime)
+            return;
+
+        nextSearchTime = Time.time + 1f;
+
+        FindObjects();
+
+        objectsFound =
+            PitWallUpper != null &&
+            PitWallLower != null &&
+            PitGroundTop != null &&
+            PitGroundBottom != null;
+
+        if (objectsFound)
+        {
+            Debug.Log("[APitGeo] Found all pit objects");
+        }
     }
 
     private void FixedUpdate()
@@ -24,10 +44,17 @@ public class PitFinderController : MonoBehaviour
 
     private void FindObjects()
     {
+        Debug.Log("[APitGeo] Searching...");
+
         PitWallUpper = GameObject.Find(ObjPath + "pit upper slippery wall");
         PitWallLower = GameObject.Find(ObjPath + "pit lower slippery wall");
         PitGroundTop = GameObject.Find(ObjPath + "pit ground top");
         PitGroundBottom = GameObject.Find(ObjPath + "pit ground bottom");
+
+        Debug.Log($"[APitGeo] Upper: {PitWallUpper}");
+        Debug.Log($"[APitGeo] Lower: {PitWallLower}");
+        Debug.Log($"[APitGeo] Top: {PitGroundTop}");
+        Debug.Log($"[APitGeo] Bottom: {PitGroundBottom}");
     }
 
     private void WallSettings()

@@ -27,7 +27,7 @@ public static class GlobalVars
     public static GameObject? PitGroundTop;
     public static GameObject? PitGroundBottom;
 
-    public static string ObjPath = "Environment Objects/LocalObjects_Prefab/Forest/Terrain/";
+    public static string ObjPath = "Environment Objects/LocalObjects_Prefab/Forest/Terrain/pitgeo/";
 
     public static float WallSlipMult = 1f;
     public static float WallSlipMultOther = 1f;
