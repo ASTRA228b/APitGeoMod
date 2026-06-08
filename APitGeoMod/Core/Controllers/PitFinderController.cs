@@ -109,8 +109,8 @@ public class PitFinderController : MonoBehaviour
         }
         else
         {
-            Surface.extraVelMaxMultiplier = 0.01f;
-            Surface.overrideIndex = 0;
+            Surface.extraVelMaxMultiplier = 1f;
+            Surface.extraVelMultiplier = 1f;
         }
     }
 }
